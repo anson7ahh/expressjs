@@ -5,14 +5,16 @@ import { connectDatabase } from "./src/config/database.ts";
 import { handleError } from "./src/middlewares/handleError.middleware.ts";
 import authRouter from "./src/routers/auth.router.ts";
 import { limiter } from "./src/middlewares/ratelimit.middleware.ts";
+import orderRouter from "./src/routers/order.router.ts";
 dotenv.config();
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT;
 connectDatabase();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(limiter);
-app.use("/auth", authRouter);
+app.use("/v1/auth", authRouter);
+app.use("/v1/", orderRouter);
 app.use(handleError);
 app.listen(PORT, () => {
   console.log(`Server listening at http://localhost:${PORT}`);

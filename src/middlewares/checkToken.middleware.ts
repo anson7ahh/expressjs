@@ -1,10 +1,7 @@
 import jwt from "jsonwebtoken";
 
 export const checkToken = (req, res, next) => {
-  // Lấy token từ header
-  const token = req.headers["authorization"]?.split(" ")[1]; 
-  // Thường sẽ gửi dưới dạng "Bearer <token>"
-
+  const token = req.headers["authorization"]?.split(" ")[1];
   if (!token) {
     return res.status(401).json({
       success: false,
@@ -21,7 +18,7 @@ export const checkToken = (req, res, next) => {
       });
     }
     const decoded = jwt.verify(token, privateKey);
-    req.user = decoded; 
+    req.user = decoded;
     next();
   } catch (err) {
     return res.status(403).json({

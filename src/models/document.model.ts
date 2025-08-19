@@ -14,12 +14,11 @@ const documentSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
-
   category: {
     type: String,
     required: true,
   },
-  user: {
+  author: {
     type: mongoose.Schema.ObjectId,
     ref: "User",
     required: true,
@@ -30,4 +29,4 @@ const documentSchema = new mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model("Document", documentSchema);
+export const Documents = mongoose.model("Documents", documentSchema);

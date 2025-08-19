@@ -1,8 +1,7 @@
 import { User } from "../models/user.model.ts";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
-import dotenv from "dotenv";
-dotenv.config();
+
 export const register = async (req, res, next) => {
   try {
     const { name, password, email } = req.body;
@@ -62,7 +61,7 @@ export const login = async (req, res, next) => {
       success: true,
       message: "Login successful",
       token: accessToken,
-      fullName: account.name,
+      name: account.name,
       email: account.email,
     });
   } catch (err) {

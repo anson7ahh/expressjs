@@ -23,12 +23,6 @@ const orderSchema = new mongoose.Schema({
     ref: "User",
     required: true,
   },
-  totalPrice: {
-    type: Number,
-    required: true,
-    default: 0,
-  },
-  deliveredAt: Date,
   createdAt: {
     type: Date,
     default: Date.now,
