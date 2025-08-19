@@ -8,7 +8,6 @@ export const checkToken = (req, res, next) => {
       message: "Bạn chưa đăng nhập",
     });
   }
-
   try {
     const privateKey = process.env.PRIVATE_KEY;
     if (!privateKey) {

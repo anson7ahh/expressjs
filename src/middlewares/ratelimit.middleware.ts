@@ -1,7 +1,4 @@
-// middleware/rateLimit.js
 import rateLimit from "express-rate-limit";
-
-// Tạo middleware limit
 export const limiter = rateLimit({
   windowMs: 60 * 1000,
   max: 10,

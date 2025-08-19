@@ -5,7 +5,5 @@ const authRouter = express.Router();
 
 authRouter.post("/register", register);
 authRouter.post("/login", login);
-// router.put("/edit", editUser);
-// router.put("/edit-password", editPassword);
 
 export default authRouter;
